@@ -96,6 +96,7 @@ const mensajes = [
     "Tu sonrisa ilumina mi vida 🌙",
     "Nunca cambies 💫",
     "Eres increíble, divertida y bella corazon 💙",
+    "Haga click",
     "Te deseo lo mejor desde lo màs profundo de mi corazòn ✨",
     "Sigue brillando e ilumina a màs personas mi reina 🌟",
     "Todo te irá bien mi amor 💙"
@@ -553,6 +554,23 @@ var loop = function () {
 };
 
 loop();
+</script>
+<audio id="musica" autoplay loop>
+    <source src="azul.mp4" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("load", () => {
+    const musica = document.getElementById("musica");
+
+    musica.play().catch(() => {
+        document.body.addEventListener(
+            "click",
+            () => musica.play(),
+            { once: true }
+        );
+    });
+});
 </script>
 
 </body>
