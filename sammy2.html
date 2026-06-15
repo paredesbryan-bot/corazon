@@ -78,6 +78,19 @@ html, body {
     overflow: hidden;
     background: black;
 }
+
+#playBtn{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:12px 24px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    cursor:pointer;
+    z-index:999;
+}
 </style>
 
 </head>
@@ -88,6 +101,11 @@ html, body {
 
 <div id="stars"></div>
 
+<button id="playBtn">🎵 Reproducir música</button>
+<audio id="musica" autoplay loop>
+    <source src="azul.mp4" type="audio/mpeg">
+</audio>
+
 <script>
 
 const mensajes = [
@@ -96,9 +114,9 @@ const mensajes = [
     "Tu sonrisa ilumina mi vida 🌙",
     "Nunca cambies 💫",
     "Eres increíble, divertida y bella corazon 💙",
-    "Haga click",
     "Te deseo lo mejor desde lo màs profundo de mi corazòn ✨",
     "Sigue brillando e ilumina a màs personas mi reina 🌟",
+    "Mi reina, mi niña, mi preciosa, la extraño mucho",
     "Todo te irá bien mi amor 💙"
 ];
 
@@ -554,11 +572,8 @@ var loop = function () {
 };
 
 loop();
-</script>
-<audio id="musica" autoplay loop>
-    <source src="azul.mp4" type="audio/mpeg">
-</audio>
 
+</script>
 <script>
 window.addEventListener("load", () => {
     const musica = document.getElementById("musica");
@@ -570,6 +585,14 @@ window.addEventListener("load", () => {
             { once: true }
         );
     });
+});
+
+const btn = document.getElementById("playBtn");
+const musica = document.getElementById("musica");
+
+btn.addEventListener("click", () => {
+    musica.play();
+    btn.style.display = "none";
 });
 </script>
 
